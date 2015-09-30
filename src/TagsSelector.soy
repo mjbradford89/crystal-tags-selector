@@ -1,0 +1,31 @@
+{namespace Templates.TagsSelector}
+
+/**
+ * @param? elementClasses
+ * @param id
+ * @param placeholder
+ * @param tags
+ * @skipUpdates elementClasses
+ */
+{template .content}
+	<div id="{$id}" class="tagsSelector component{$elementClasses ? ' ' + $elementClasses : ''}">
+		<input name="tagsSelectorInput" type="text" value="{$tags}" />
+		{call .selected data="all" /}
+		<input class="tags-input" data-onfocusout="handleFocusout_" data-onkeypress="handleKeypress_" id="{$id}-input" type="text" placeholder="{$placeholder}" />
+	</div>
+{/template}
+
+/**
+ * @param id
+ * @param tags
+ */
+{template .selected}
+	<div id="{$id}-selected" class="selected">
+		{foreach $tag in $tags}
+			<span class="tag label label-info">
+				{$tag}
+				<span class="glyphicon glyphicon-remove" data-onclick="handleRemoveClick_"></span>
+			</span>
+		{/foreach}
+	</div>
+{/template}

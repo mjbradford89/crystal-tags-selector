@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo: TagsSelector</title>
+
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../build/tagsSelector.css">
+
+	<script src="../bower_components/soyutils/soyutils.js"></script>
+	<script src="../build/globals/tagsSelector.js"></script>
+</head>
+<body>
+	<h1>TagsSelector</h1>
+	<script type="text/javascript">
+		new crystal.TagsSelector({
+			tags: ['Tyrannosaurus', 'Velociraptor', 'Triceratops', 'Stegosaurus', 'Pinacosaurus'],
+			placeholder: 'Dinosaurs'
+		}).render();
+	</script>
+</body>
+</html>
