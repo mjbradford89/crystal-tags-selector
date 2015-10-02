@@ -71,7 +71,7 @@ class TagsSelector extends SoyComponent {
 	}
 
 	removeDelim_(value) {
-		return value.replace(this.delimeter, '');
+		return value.replace(this.delimeter, '').trim();
 	}
 
 	removeTag(tag) {
