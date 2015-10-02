@@ -14,7 +14,10 @@ class TagsSelector extends SoyComponent {
 		if (!this.hasTag_(tag)) {
 			this.tags = this.tags.concat(tag);
 
-			this.emit('tagAdded');
+			this.emit('tagAdded', {
+				addedTag: tag,
+				tags: this.tags
+			});
 		}
 	}
 
@@ -79,7 +82,10 @@ class TagsSelector extends SoyComponent {
 
 			this.tags = tags.concat(this.tags.slice(index + 1));
 
-			this.emit('tagRemoved');
+			this.emit('tagRemoved', {
+				removedTag: tag,
+				tags: this.tags
+			});
 		}
 	}
 
