@@ -21,6 +21,14 @@ class TagsSelector extends SoyComponent {
 		}
 	}
 
+	focusInput_(id) {
+		var input = document.getElementById(id + '-input');
+
+		if (input) {
+			input.focus();
+		}
+	}
+
 	handleFocusout_(event) {
 		var inputElement = event.target;
 		var value = inputElement.value;
@@ -48,9 +56,7 @@ class TagsSelector extends SoyComponent {
 
 				//The re-focusing of the input has to be delayed until after
 				//the element is repainted.
-				setTimeout(function(id) {
-					document.getElementById(id).focus();
-				}, 10, this.id + '-input');
+				setTimeout(this.focusInput_, 10, this.id);
 			}
 
 			inputElement.value = '';
