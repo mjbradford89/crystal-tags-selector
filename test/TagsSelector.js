@@ -130,4 +130,28 @@ describe('TagsSelector', function() {
 
 		assert.deepEqual([], selector.val());
 	});
+
+	it('should delete last tag on backspace', function() {
+		selector = new TagsSelector({
+			tags: ['A', 'B', 'C', 'D']
+		}).render();
+
+		var tagsInput = selector.element.querySelector('.tags-input');
+
+		tagsInput.value = 'T';
+
+		dom.triggerEvent(tagsInput, 'keydown', {
+			keyCode: 8
+		});
+
+		assert.deepEqual(['A', 'B', 'C', 'D'], selector.val());
+
+		tagsInput.value = '';
+
+		dom.triggerEvent(tagsInput, 'keydown', {
+			keyCode: 8
+		});
+
+		assert.deepEqual(['A', 'B', 'C'], selector.val());
+	});
 });
