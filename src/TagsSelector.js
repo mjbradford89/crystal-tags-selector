@@ -10,13 +10,6 @@ import './TagsSelector.soy';
  */
 class TagsSelector extends SoyComponent {
 	/**
-	 * @inheritDoc
-	 */
-	constructor(opt_config) {
-		super(opt_config);
-	}
-
-	/**
 	 * Adds a tag to the tags list.
 	 * @param {!string} tag
 	 */
@@ -40,7 +33,7 @@ class TagsSelector extends SoyComponent {
 		var inputElement = event.target;
 		var value = inputElement.value;
 
-		value = this.removeDelim_(value);
+		value = this.getNextTagName_(value);
 
 		if (value.length > 0) {
 			this.addTag(value);
@@ -61,7 +54,7 @@ class TagsSelector extends SoyComponent {
 			var inputElement = event.target;
 			var value = inputElement.value;
 
-			value = this.removeDelim_(value);
+			value = this.getNextTagName_(value);
 
 			if (value.length > 0) {
 				this.addTag(value);
@@ -108,7 +101,7 @@ class TagsSelector extends SoyComponent {
 	 * @return {string} value with delimeter removed.
 	 * @protected
 	 */
-	removeDelim_(value) {
+	getNextTagName_(value) {
 		return value.replace(this.delimeter, '').trim();
 	}
 
