@@ -43,6 +43,23 @@ class TagsSelector extends SoyComponent {
 	}
 
 	/**
+	 * Handles the keydown event from the tags input.
+	 * @param {!Event} event
+	 * @protected
+	 */
+	handleKeydown_(event) {
+		var char = event.keyCode;
+		var inputElement = event.target;
+		var value = inputElement.value;
+
+		if (char === TagsSelector.BACKSPACE_KEYCODE && value.length === 0) {
+			var lastTag = this.tags[this.tags.length - 1];
+
+			this.removeTag(lastTag);
+		}
+	}
+
+	/**
 	 * Handles the keypress event from the tags input.
 	 * @param {!Event} event
 	 * @protected
@@ -140,6 +157,15 @@ class TagsSelector extends SoyComponent {
  * @static
  */
 TagsSelector.ELEMENT_CLASSES = 'tagsSelector';
+
+/**
+ * KeyCode for the Backspace key.
+ * @default 8
+ * @type {int}
+ * @static
+ */
+TagsSelector.BACKSPACE_KEYCODE = 8;
+
 
 /**
  * KeyCode for the Enter key.

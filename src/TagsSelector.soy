@@ -11,7 +11,7 @@
 	<div id="{$id}" class="tagsSelector component{$elementClasses ? ' ' + $elementClasses : ''}">
 		{call .valueInput data="all" /}
 		{call .selected data="all" /}
-		<input class="tags-input" data-onfocusout="handleFocusout_" data-onkeypress="handleKeypress_" id="{$id}-input" type="text" placeholder="{$placeholder}" />
+		<input class="tags-input" data-onfocusout="handleFocusout_" data-onkeydown="handleKeydown_" data-onkeypress="handleKeypress_" id="{$id}-input" type="text" placeholder="{$placeholder}" />
 	</div>
 {/template}
 
