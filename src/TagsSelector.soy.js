@@ -19,7 +19,7 @@ if (typeof Templates.TagsSelector == 'undefined') { Templates.TagsSelector = {};
  * @suppress {checkTypes}
  */
 Templates.TagsSelector.content = function(opt_data, opt_ignored, opt_ijData) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="tagsSelector component' + soy.$$escapeHtmlAttribute(opt_data.elementClasses ? ' ' + opt_data.elementClasses : '') + '">' + Templates.TagsSelector.valueInput(opt_data, null, opt_ijData) + Templates.TagsSelector.selected(opt_data, null, opt_ijData) + '<input class="tags-input" data-onfocusout="handleFocusout_" data-onkeypress="handleKeypress_" id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '-input" type="text" placeholder="' + soy.$$escapeHtmlAttribute(opt_data.placeholder) + '" /></div>');
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '" class="tagsSelector component' + soy.$$escapeHtmlAttribute(opt_data.elementClasses ? ' ' + opt_data.elementClasses : '') + '">' + Templates.TagsSelector.valueInput(opt_data, null, opt_ijData) + Templates.TagsSelector.selected(opt_data, null, opt_ijData) + '<input class="tags-input" data-onfocusout="handleFocusout_" data-onkeydown="handleKeydown_" data-onkeypress="handleKeypress_" id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '-input" type="text" placeholder="' + soy.$$escapeHtmlAttribute(opt_data.placeholder) + '" /></div>');
 };
 if (goog.DEBUG) {
   Templates.TagsSelector.content.soyTemplateName = 'Templates.TagsSelector.content';
@@ -57,7 +57,7 @@ if (goog.DEBUG) {
  * @suppress {checkTypes}
  */
 Templates.TagsSelector.valueInput = function(opt_data, opt_ignored, opt_ijData) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<input id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '-valueInput" name="tagsSelectorInput" type="text" value="' + soy.$$escapeHtmlAttribute(opt_data.tags) + '" />');
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<input id="' + soy.$$escapeHtmlAttribute(opt_data.id) + '-valueInput" name="tagsSelectorInput" type="hidden" value="' + soy.$$escapeHtmlAttribute(opt_data.tags) + '" />');
 };
 if (goog.DEBUG) {
   Templates.TagsSelector.valueInput.soyTemplateName = 'Templates.TagsSelector.valueInput';
