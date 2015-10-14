@@ -32,19 +32,6 @@ class TagsSelector extends SoyComponent {
 	}
 
 	/**
-	 * Focuses the tag input.
-	 * @param {!string} id The id of the component.
-	 * @private
-	 */
-	focusInput_(id) {
-		var input = document.getElementById(id + '-input');
-
-		if (input) {
-			input.focus();
-		}
-	}
-
-	/**
 	 * Handles the focusout event from the tags input.
 	 * @param {!Event} event
 	 * @protected
@@ -78,10 +65,6 @@ class TagsSelector extends SoyComponent {
 
 			if (value.length > 0) {
 				this.addTag(value);
-
-				//The re-focusing of the input has to be delayed until after
-				//the element is repainted.
-				setTimeout(this.focusInput_, 10, this.id);
 			}
 
 			inputElement.value = '';

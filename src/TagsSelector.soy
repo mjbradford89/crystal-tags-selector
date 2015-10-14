@@ -9,7 +9,7 @@
  */
 {template .content}
 	<div id="{$id}" class="tagsSelector component{$elementClasses ? ' ' + $elementClasses : ''}">
-		<input name="tagsSelectorInput" type="text" value="{$tags}" />
+		{call .valueInput data="all" /}
 		{call .selected data="all" /}
 		<input class="tags-input" data-onfocusout="handleFocusout_" data-onkeypress="handleKeypress_" id="{$id}-input" type="text" placeholder="{$placeholder}" />
 	</div>
@@ -28,4 +28,12 @@
 			</span>
 		{/foreach}
 	</div>
+{/template}
+
+/**
+ * @param id
+ * @param tags
+ */
+{template .valueInput}
+	<input id="{$id}-valueInput" name="tagsSelectorInput" type="text" value="{$tags}" />
 {/template}
